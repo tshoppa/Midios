@@ -8,6 +8,6 @@ MIDIOS is a project to utilize the Akai Midimix Controller on IOS devices. It pr
 
 # How it works
 
-#Setup
+# Setup
 
-#Configuration
+# Configuration
