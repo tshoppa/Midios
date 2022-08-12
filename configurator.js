@@ -1644,3 +1644,6 @@ window.addEventListener('drop', function(e){
     e.stopPropagation();
     e.preventDefault();
 }, false);
+
+
+document.documentElement.classList.remove('hidden');
