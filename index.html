@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div id="mainpage">       
+            <div class="header">
+                <div class="title">MIDIOS</div>
+                <div class="subtitle">The MidiMix on IOS Project</div>
+                <a class="switchPage" href="./configurator.html">CONFIGURATOR ></a>
+            </div>
+
+            <div class="textbox">
+                <h1>MIDIOS</h1>
+                <p>
+                    MIDIOS is a configuration tool to fully utilize the <strong><a href="https://www.akaipro.com/midimix">Akai Midimix Controller</a>
+                    on IOS devices.</strong> It provides
+                    <ul>
+                        <li>Visual feedback on the controller's <strong>button LEDs</strong></li>
+                        <li><strong>Two sets</strong> of independent controller configurations accessible by using <strong>bank Left and Right buttons</strong></li>
+                        <li><strong>Completely free programmable</strong> knobs, buttons and faders</li>
+                        <li>Special functions like <strong>toggle buttons</strong>, <strong>radio buttons</strong> or <strong>toggle groups</strong></li>
+                    </ul>
+                </p>
+                <h1> HOW IT WORKS</h1>
+                <p>
+                    The Akai Midimix controller is mainly designed for Ableton live. The LEDs therefore need a feedback signal from the software to be lit.
+                </p>
+                <div class="imgWrapper">
+                    <img class ="centerImg" src="./img/HowItWorks.svg"/>
+                </div>
+                <p>
+                    MIDIOS uses <a href="https://audeonic.com/streambyter/">Streambyter</a>, a free programmable midi app to change the LEDs in response to midi signals from the midimix controller.
+                    Additionally it features a mapping service that sends different Midi messages depending on wich bank is selected.
+                </p>
+                <p> 
+                    The Streambyter scripts can be generated using the <a href="./configurator.html">MIDIOS configurator</a> to define different button behaviors like toggle buttons.
+                    For more details go to CONFIGURATION below.
+                </p>
+                <h1> BASIC SETUP</h1>
+                        <h2>1. Midimix Configuration</h2>
+                        <p>
+                            MIDIOS needs a specific midimix setup to properly map each knob, button and fader.
+                            Download this <a href="">midimix configuration</a> and install it on your midimix. 
+                            If you don't know how to edit a midimix configuration you can lookup <a href="https://inmusicbrands.force.com/akaipro/s/article/Akai-Pro-MIDImix-Using-the-MIDImix-Editor">this tutorial</a>.
+                        </p>                       
+                        <h2>2. Install StreamByter</h2>
+                        <p>
+                            Get the free <a href="https://apps.apple.com/de/app/streambyter/id1398712641"> StreamByter app</a> from the app store and install it on your IOS device. 
+                        </p>
+                        <h2>3. Midi Routing</h2>
+                            <p>
+                                In addition to StreamByter we need an app that routes the midi signals from the midimix to streambyter, and from streambyter to the music apps.
+                            </p>
+                            <h3> Alternative 1 - MidiMittr </h3>
+                            <p>
+                                A simple and free solution is <a href="https://apps.apple.com/de/app/midimittr/id925495245"> MidiMittr</a>.
+                                After installation, start streambyter and connect your midimix.
+                                Now start MidiMittr, open <i>Midi Ports</i> and activate Midimix and StreamByter as sources and destinations. Deactivate all other devices.
+
+                            </p>
+                            <div class="imgWrapper">
+                                <img class="centerImg" src="./img/midimitr.jpg">
+                            </div>
+                            <h3> Alternative 2 - Audiobus 3</h3>
+                            <p>
+                                Audiobus 3 and other AUv3 mixing apps like AUM are also easily set up for routing. These are paid apps, but most IPad musicians have them anyway.
+                                First connect your Midimix and start Streambyter. Start Audiubus and switch to the midi page. Add a new input (left side +) and choose Midimix from the "Sytem" ressources. 
+                                Then open the output (right side +) and select Streambyter, again from the "System" devices. 
+                                Do the same vice versa, so that midi data are routed in both directions. It should now look like this:
+                           </p>
+                           <div class="imgWrapper">
+                            <img class="centerImg" src="./img/Audiobus.jpg">
+                           </div>
+                        <h2>4. Testing</h2>
+                            <p> 
+                                You can now do a first test of the setup. Switch to StreamByter and open the Midi Event Monitor (small magnifier icon in the bottom right).
+                            </p>
+                            <div class="imgWrapper">
+                                <img src = "./img/streambyterMon.png">
+                            </div>
+                            <p>
+                                If you turn a knob on your midimix, you should see a stream of midi signals in the input and output windows:
+                            </p>
+                            <div class="imgWrapper">
+                                <img class="centerImg" src="./img/MidiMonitor.jpg">       
+                            </div>
+                        <h2>5. App Midi Settings</h2>
+                            <p>
+                               As a last step, we have to make sure the target app receives Midi data from streambyter but not from Midimix.
+                               If you set up the routing using Audibus (or AUM etc.), just add another Midi routing from StreamByter to the traget app.
+                               In this example I added Sunrizer synth to audiobus (as audio unit), than routed StreamByter to Sunrizer on the midi tab:
+                            </p>
+                            <div class="imgWrapper">
+                                <img class="centerImg" src="./img/Audiobus routing.jpg">       
+                            </div>
+                            <p>
+                                If you do not use an AUv3 mixing/routing app, the target app has to provide an option to select midi sources (which fortunately a lot apps do).
+                                In Sunrizer for example this option is "Midi Inputs" in the utils menu (with StreamByter selected and Midimix deselected):
+                            </p>
+                            <div class="imgWrapper">
+                                <img class="centerImg" src="./img/Sunrizer.jpg">       
+                            </div>
+                            <p>
+                                This is another example from Drambo. Here StreamByter is routed as control and Midimix not:
+                            </p>
+                            <div class="imgWrapper">
+                                <img class="centerImg" src="./img/Drambo.jpg">       
+                            </div>
+                <h1>CONFIGURATION</h1>
+                <p>
+                   Once the basic routing is set up, you can add a configuration script to StreamByter. 
+                   Let's try this with this <a href="./midimix example.sbr" download">example script</a>. 
+                   If you are on your target Ipad/Iphone, just click the link and save the file to the "StreamByter" folder on your device. 
+                   From your PC or Mac, download the file and copy it to the "StreamByter" folder on your I-device with your favorite file exchange method.
+                   I use a Nextcloud server, but it works with Airdrop, dropbox etc. as well. 
+                   <strong>Note</strong>, that it <strong> does not work with Google Drive</strong>, as google changes the file extension.
+                </p>
+                <p>
+                    If you <strong>cannot find the "StreamByter" folder</strong>, it is because it is initally empty. Use the Search in this case and it will appear there.
+                </p>
+                    <div class="imgWrapper">
+                        <img class="centerImg" src="./img/StreamByter folder.jpg">       
+                    </div>
+                <p>
+                    Switch to the StreamByter App and open the preset menu (3 lines icon in the lower left):
+                </p>
+                    <div class="imgWrapper">
+                        <img class="centerImg" src="./img/StreamByter menu.png">       
+                    </div>
+                <p>
+                    You should see the just imported "midimix example" script. Select it and click on "Load":
+                </p>
+                    <div class="imgWrapper">
+                        <img class="centerImg" src="./img/StreamByter load.png">       
+                    </div>
+                <p>
+                    Finally hit "Install" on the StreamByter main screen.
+                </p>
+                    <div class="imgWrapper">
+                        <img class="centerImg" src="./img/StreamByter install.png">       
+                    </div>
+                <p>
+                    If your midimix is connected to StreamByter, you should see the LEDs blinking up. (If not, just connect as described in Basic Setup and hit install again).
+                    Your midimix buttons should now have this layout:
+                </p>
+                <div class="imgWrapper">
+                    <img class="centerImg" src="./img/ExampleLayout.svg">       
+                </div>
+                <p>
+                    <strong> Congrats, you did it!</strong> You can now start <strong>creating your own configurations</strong> with the <a href="./configurator.html">MIDIOS CONFIGURATOR</a>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
