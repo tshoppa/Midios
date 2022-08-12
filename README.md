@@ -5,9 +5,3 @@ MIDIOS is a project to utilize the Akai Midimix Controller on IOS devices. It pr
 - Two sets of independent controller configurations accessible by using bank Left and Right buttons
 - Completely free programmable knobs, buttons and faders
 - Special functions like toggle buttons, radio buttons or toggle groups
-
-# How it works
-
-# Setup
-
-# Configuration
