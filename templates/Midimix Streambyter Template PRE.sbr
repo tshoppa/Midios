@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StreamByter-Rules</key>
+	<string>
+if load 
+  Alias 0 TRUE
+  Alias 1 FALSE
+  Alias 0 OFF
+  Alias 1 ON
+  Alias L1 chanCom 
+  Alias L2 isXKey 
+  Alias L3 togCount 
+  Alias L4 tLen 
+  Alias L5 tLoop 
+  Alias L6 tbId 
+  Alias L7 curBank 
+  Alias L8 vType 
+  Alias L9 vCC 
+  Alias LA vStat 
+  Alias LB vOthStat 
+  Alias LC vVal 
+  Alias LD vGrp 
+  Alias LE vRef 
+  Alias LF vOthRef 
+  Alias L10 vChan 
+  Alias 19 s0 
+  Alias 1A s1 
+  Alias 1B s2 
+  Alias 1C s3 
+  Alias 1D s4 
+  Alias 1E s5 
+  Alias 1F s6 
+  Alias 20 s7 
+  Alias 21 bg0 
+  Alias 2A bg1 
+  Alias 33 bg2 
+  Alias 3C bg3 
+  Alias 45 bg4 
+  Alias 4E bg5 
+  Alias 57 bg6 
+  Alias 60 bg7 
+  Alias 1 bankLeft
+  Alias 2 bankRight
+  Alias 0 tb 
+  Alias 1 bt 
+  Alias 2 ta 
+  Alias 3 sb 
+  Alias 19 bankLeftBtn
+  Alias 1A bankRightBtn
+  Alias 1B soloBtn
+  Alias 1 BtnType 
+  Alias 19 BtnRef 
+  Alias 31 BtnSndVal 
+  Alias 49 BtnGroup 
+  Alias 1 DataCC 
+  Alias 31 DataStat 
+  Alias 61 DataChan 
+  Alias 61 Ctrls 
+  Alias 79 CtrlSld 
+  Alias 82 CtrlChans 
+  Alias 9A CtrlSldChans 
+  Define NoteOn MT == 90
+  Define NoteOff MT == 80
+  Define isCC MT == B0
+  Define bankLeftBtnPressed M1 == bankLeftBtn
+  Define bankRightBtnPressed M1 == bankRightBtn
+  Define soloBtnPressed M1 == soloBtn
+  Define isBankLeft curBank == bankLeft
+  Define isBankRight curBank == bankRight
